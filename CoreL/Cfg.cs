@@ -108,6 +108,9 @@ namespace CoreL
             }
         }
 
+        /// <summary>
+        /// conn string
+        /// </summary>
         public string DbConnectionString
         {
             get
