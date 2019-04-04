@@ -115,7 +115,7 @@ namespace CoreL
         {
             get
             {
-                return "server=" + m_DbServer + ";user=" + m_DbUser + ";database=" + m_DbName + ";port=" + m_DbPort + ";password=" + m_DbPassword + ";SslMode=none;Convert Zero Datetime=True";
+                return "server=" + m_DbServer + ";user=" + m_DbUser + ";database=" + m_DbName + ";port=" + m_DbPort + ";password=" + m_DbPassword + ";SslMode=none;Convert Zero Datetime=True;charset=utf8";
             }
         }
         public static Cfg ReadConfig()

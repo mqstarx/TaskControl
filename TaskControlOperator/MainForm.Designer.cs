@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.task_listView = new System.Windows.Forms.ListView();
             this.status_col = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,6 +38,12 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.refresh_btn = new System.Windows.Forms.Button();
             this.show_ended_tasks_cxb = new System.Windows.Forms.CheckBox();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.новаяЗадачаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.report_btn = new System.Windows.Forms.Button();
+            this.only_req_cxb = new System.Windows.Forms.CheckBox();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // task_listView
@@ -51,13 +58,14 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.task_listView.ContextMenuStrip = this.contextMenuStrip;
             this.task_listView.FullRowSelect = true;
             this.task_listView.GridLines = true;
             this.task_listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.task_listView.Location = new System.Drawing.Point(12, 36);
             this.task_listView.MultiSelect = false;
             this.task_listView.Name = "task_listView";
-            this.task_listView.Size = new System.Drawing.Size(992, 447);
+            this.task_listView.Size = new System.Drawing.Size(992, 485);
             this.task_listView.TabIndex = 0;
             this.task_listView.UseCompatibleStateImageBehavior = false;
             this.task_listView.View = System.Windows.Forms.View.Details;
@@ -66,12 +74,12 @@
             // status_col
             // 
             this.status_col.Text = "Статус задачи";
-            this.status_col.Width = 92;
+            this.status_col.Width = 146;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Текст задачи";
-            this.columnHeader1.Width = 263;
+            this.columnHeader1.Width = 207;
             // 
             // columnHeader2
             // 
@@ -114,16 +122,63 @@
             this.show_ended_tasks_cxb.UseVisualStyleBackColor = true;
             this.show_ended_tasks_cxb.CheckedChanged += new System.EventHandler(this.show_ended_tasks_cxb_CheckedChanged);
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.новаяЗадачаToolStripMenuItem,
+            this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(272, 48);
+            // 
+            // новаяЗадачаToolStripMenuItem
+            // 
+            this.новаяЗадачаToolStripMenuItem.Name = "новаяЗадачаToolStripMenuItem";
+            this.новаяЗадачаToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.новаяЗадачаToolStripMenuItem.Text = "Новая задача";
+            this.новаяЗадачаToolStripMenuItem.Click += new System.EventHandler(this.новаяЗадачаToolStripMenuItem_Click);
+            // 
+            // новаяЗадачаНаОсновеВыбраннойToolStripMenuItem
+            // 
+            this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem.Name = "новаяЗадачаНаОсновеВыбраннойToolStripMenuItem";
+            this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem.Text = "Новая задача на основе выбранной";
+            this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem.Click += new System.EventHandler(this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem_Click);
+            // 
+            // report_btn
+            // 
+            this.report_btn.Location = new System.Drawing.Point(449, 7);
+            this.report_btn.Name = "report_btn";
+            this.report_btn.Size = new System.Drawing.Size(75, 23);
+            this.report_btn.TabIndex = 4;
+            this.report_btn.Text = "Отчет";
+            this.report_btn.UseVisualStyleBackColor = true;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
+            // 
+            // only_req_cxb
+            // 
+            this.only_req_cxb.AutoSize = true;
+            this.only_req_cxb.Location = new System.Drawing.Point(280, 11);
+            this.only_req_cxb.Name = "only_req_cxb";
+            this.only_req_cxb.Size = new System.Drawing.Size(163, 17);
+            this.only_req_cxb.TabIndex = 5;
+            this.only_req_cxb.Text = "Показать только запросы ";
+            this.only_req_cxb.UseVisualStyleBackColor = true;
+            this.only_req_cxb.CheckedChanged += new System.EventHandler(this.only_req_cxb_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 533);
+            this.Controls.Add(this.only_req_cxb);
+            this.Controls.Add(this.report_btn);
             this.Controls.Add(this.show_ended_tasks_cxb);
             this.Controls.Add(this.refresh_btn);
             this.Controls.Add(this.task_listView);
             this.Name = "MainForm";
             this.Text = "Автоматизированный контроль исполнения задач (Оператор)";
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,6 +195,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button refresh_btn;
         private System.Windows.Forms.CheckBox show_ended_tasks_cxb;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem новаяЗадачаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem новаяЗадачаНаОсновеВыбраннойToolStripMenuItem;
+        private System.Windows.Forms.Button report_btn;
+        private System.Windows.Forms.CheckBox only_req_cxb;
     }
 }
 

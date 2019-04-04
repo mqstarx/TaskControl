@@ -45,5 +45,16 @@ namespace CoreL
         {
             return m_User;
         }
+
+        public static string GetUserName(List<UserInfo> usrList,int id)
+        {
+            foreach(UserInfo usr in usrList)
+            {
+                if (usr.Id == id)
+                    return usr.User;
+            }
+            return "";
+        }
+
     }
 }
