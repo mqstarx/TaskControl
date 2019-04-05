@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,11 @@ namespace TaskControl
     public partial class MainForm : Form
     {
         Cfg m_Cfg;
+        private const int m_Version = 20;
         public MainForm()
         {
             InitializeComponent();
+            this.Text +=" "+m_Version.ToString();
             m_Cfg = Cfg.ReadConfig();
             if (m_Cfg == null)
                 this.Close();
@@ -152,6 +155,20 @@ namespace TaskControl
         private void MainForm_Shown(object sender, EventArgs e)
         {
             refresh_btn_Click(null, null);
+            List<object[]> res = DataBase.SelectQuery("select * from update_client order by id desc;", m_Cfg.DbConnectionString);
+            if (res.Count > 0)
+            {
+               if((int)res[0][2]>m_Version)
+                {
+                    if(MessageBox.Show("Доступна новая версия ПО! Обновить?","Обновление программы", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+                    {
+                        Process.Start("ClientUpdate.exe");
+                        this.Close();
+                    }
+                }
+            }
+
+
         }
 
         private void show_completed_cxb_CheckedChanged(object sender, EventArgs e)

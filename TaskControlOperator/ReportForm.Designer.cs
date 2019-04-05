@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
             this.period = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.create_report = new System.Windows.Forms.Button();
@@ -110,6 +111,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.report_txb);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportForm";
             this.Text = "ReportForm";
             this.Shown += new System.EventHandler(this.ReportForm_Shown);

@@ -14,6 +14,7 @@ namespace TaskControlOperator
     public partial class MainForm : Form
     {
         private Cfg m_Cfg;
+        private const int m_Version = 20;
         public MainForm()
         {
             InitializeComponent();
@@ -186,6 +187,12 @@ namespace TaskControlOperator
         private void MainForm_Shown(object sender, EventArgs e)
         {
             refresh_btn_Click(null, null);
+
+            List<object[]> res = DataBase.SelectQuery("select * from update_client;", m_Cfg.DbConnectionString);
+            if (res.Count > 0)
+            {
+                // проверка обновления
+            }
         }
 
         private void новаяЗадачаToolStripMenuItem_Click(object sender, EventArgs e)

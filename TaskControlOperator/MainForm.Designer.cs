@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.task_listView = new System.Windows.Forms.ListView();
             this.status_col = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -36,11 +37,11 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.refresh_btn = new System.Windows.Forms.Button();
-            this.show_ended_tasks_cxb = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.новаяЗадачаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refresh_btn = new System.Windows.Forms.Button();
+            this.show_ended_tasks_cxb = new System.Windows.Forms.CheckBox();
             this.report_btn = new System.Windows.Forms.Button();
             this.only_req_cxb = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip.SuspendLayout();
@@ -101,27 +102,6 @@
             this.columnHeader5.Text = "Дата завершения факт";
             this.columnHeader5.Width = 136;
             // 
-            // refresh_btn
-            // 
-            this.refresh_btn.Location = new System.Drawing.Point(12, 7);
-            this.refresh_btn.Name = "refresh_btn";
-            this.refresh_btn.Size = new System.Drawing.Size(75, 23);
-            this.refresh_btn.TabIndex = 1;
-            this.refresh_btn.Text = "Обновить";
-            this.refresh_btn.UseVisualStyleBackColor = true;
-            this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
-            // 
-            // show_ended_tasks_cxb
-            // 
-            this.show_ended_tasks_cxb.AutoSize = true;
-            this.show_ended_tasks_cxb.Location = new System.Drawing.Point(103, 11);
-            this.show_ended_tasks_cxb.Name = "show_ended_tasks_cxb";
-            this.show_ended_tasks_cxb.Size = new System.Drawing.Size(146, 17);
-            this.show_ended_tasks_cxb.TabIndex = 2;
-            this.show_ended_tasks_cxb.Text = "Показать исполненные";
-            this.show_ended_tasks_cxb.UseVisualStyleBackColor = true;
-            this.show_ended_tasks_cxb.CheckedChanged += new System.EventHandler(this.show_ended_tasks_cxb_CheckedChanged);
-            // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -143,6 +123,27 @@
             this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem.Text = "Новая задача на основе выбранной";
             this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem.Click += new System.EventHandler(this.новаяЗадачаНаОсновеВыбраннойToolStripMenuItem_Click);
+            // 
+            // refresh_btn
+            // 
+            this.refresh_btn.Location = new System.Drawing.Point(12, 7);
+            this.refresh_btn.Name = "refresh_btn";
+            this.refresh_btn.Size = new System.Drawing.Size(75, 23);
+            this.refresh_btn.TabIndex = 1;
+            this.refresh_btn.Text = "Обновить";
+            this.refresh_btn.UseVisualStyleBackColor = true;
+            this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
+            // 
+            // show_ended_tasks_cxb
+            // 
+            this.show_ended_tasks_cxb.AutoSize = true;
+            this.show_ended_tasks_cxb.Location = new System.Drawing.Point(103, 11);
+            this.show_ended_tasks_cxb.Name = "show_ended_tasks_cxb";
+            this.show_ended_tasks_cxb.Size = new System.Drawing.Size(146, 17);
+            this.show_ended_tasks_cxb.TabIndex = 2;
+            this.show_ended_tasks_cxb.Text = "Показать исполненные";
+            this.show_ended_tasks_cxb.UseVisualStyleBackColor = true;
+            this.show_ended_tasks_cxb.CheckedChanged += new System.EventHandler(this.show_ended_tasks_cxb_CheckedChanged);
             // 
             // report_btn
             // 
@@ -175,6 +176,7 @@
             this.Controls.Add(this.show_ended_tasks_cxb);
             this.Controls.Add(this.refresh_btn);
             this.Controls.Add(this.task_listView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Автоматизированный контроль исполнения задач (Оператор)";
             this.Shown += new System.EventHandler(this.MainForm_Shown);

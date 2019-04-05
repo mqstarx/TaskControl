@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskActionForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.task_text_txb = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.users_cmb = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.status_cmb = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.date_begin_task = new System.Windows.Forms.DateTimePicker();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -47,7 +49,6 @@
             this.msg_txb = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.edit_task = new System.Windows.Forms.Button();
-            this.status_cmb = new System.Windows.Forms.ComboBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.users_sogl_cmb = new System.Windows.Forms.ComboBox();
             this.panelSogl = new System.Windows.Forms.Panel();
@@ -111,6 +112,15 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Статус";
+            // 
+            // status_cmb
+            // 
+            this.status_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.status_cmb.FormattingEnabled = true;
+            this.status_cmb.Location = new System.Drawing.Point(6, 46);
+            this.status_cmb.Name = "status_cmb";
+            this.status_cmb.Size = new System.Drawing.Size(135, 21);
+            this.status_cmb.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -237,15 +247,6 @@
             this.edit_task.UseVisualStyleBackColor = true;
             this.edit_task.Click += new System.EventHandler(this.edit_task_Click);
             // 
-            // status_cmb
-            // 
-            this.status_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.status_cmb.FormattingEnabled = true;
-            this.status_cmb.Location = new System.Drawing.Point(6, 46);
-            this.status_cmb.Name = "status_cmb";
-            this.status_cmb.Size = new System.Drawing.Size(135, 21);
-            this.status_cmb.TabIndex = 0;
-            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.users_sogl_cmb);
@@ -293,6 +294,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TaskActionForm";

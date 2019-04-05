@@ -103,9 +103,30 @@ namespace CoreL
             // conn.Open();
             MySqlCommand command = new MySqlCommand();
             command.Connection = conn;
+            
             command.CommandText = "INSERT INTO tasks (task_text, id_isp,date_begin, date_end,id_sogl) VALUES ('"+taskInfo.TaskContent+"','"+taskInfo.IspId.ToString()+"','"+taskInfo.DateBegin.ToString("yyyy-MM-dd") +"','"+ taskInfo.DateEnd.ToString("yyyy-MM-dd") + "','"+taskInfo.SoglId.ToString()+"');";
 
           
+
+            conn.Open();
+
+            command.ExecuteNonQuery();
+        }
+        public static void InsertFilesQuery(UFiles uf,string version, string connection_string)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            // conn.Open();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = conn;
+            byte[] databuff = ObjectToByteArray(uf);
+            MySqlParameter fileContentParameter = new MySqlParameter("?databuff", MySqlDbType.Blob, databuff.Length);
+            command.CommandText = "INSERT INTO update_client (files, version) VALUES (?databuff,'" + version + "');";
+
+            fileContentParameter.Value = databuff;
+
+
+            command.Parameters.Add(fileContentParameter);
 
             conn.Open();
 
