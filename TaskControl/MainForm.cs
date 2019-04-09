@@ -15,11 +15,11 @@ namespace TaskControl
     public partial class MainForm : Form
     {
         Cfg m_Cfg;
-        private const int m_Version = 20;
+        private const int m_Version = 10;
         public MainForm()
         {
             InitializeComponent();
-            this.Text +=" "+m_Version.ToString();
+            this.Text +=" Версия: "+m_Version.ToString();
             m_Cfg = Cfg.ReadConfig();
             if (m_Cfg == null)
                 this.Close();

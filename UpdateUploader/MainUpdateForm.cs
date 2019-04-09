@@ -37,9 +37,12 @@ namespace UpdateUploader
 
         private void add_btn_Click(object sender, EventArgs e)
         {
-            if(m_Files.FilesList.Count>0 && textBox1.Text.Length>0)
+            if (m_Files.FilesList.Count > 0 && textBox1.Text.Length > 0)
             {
-                DataBase.InsertFilesQuery(m_Files, textBox1.Text, m_Cfg.DbConnectionString);
+                if (!checkBox1.Checked)
+                    DataBase.InsertFilesQuery(m_Files, textBox1.Text, m_Cfg.DbConnectionString);
+                else
+                    DataBase.InsertFilesOperatorQuery(m_Files, textBox1.Text, m_Cfg.DbConnectionString);
                 m_Files.FilesList.Clear();
                 listBox1.Items.Clear();
 

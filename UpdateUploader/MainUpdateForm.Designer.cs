@@ -34,11 +34,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.add_btn = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // obzor_btn
             // 
-            this.obzor_btn.Location = new System.Drawing.Point(12, 87);
+            this.obzor_btn.Location = new System.Drawing.Point(12, 189);
             this.obzor_btn.Name = "obzor_btn";
             this.obzor_btn.Size = new System.Drawing.Size(120, 23);
             this.obzor_btn.TabIndex = 0;
@@ -51,7 +52,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 25);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 56);
+            this.listBox1.Size = new System.Drawing.Size(235, 147);
             this.listBox1.TabIndex = 1;
             // 
             // label1
@@ -65,7 +66,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(143, 41);
+            this.textBox1.Location = new System.Drawing.Point(272, 152);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(80, 20);
             this.textBox1.TabIndex = 3;
@@ -73,7 +74,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 25);
+            this.label2.Location = new System.Drawing.Point(272, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 4;
@@ -81,7 +82,7 @@
             // 
             // add_btn
             // 
-            this.add_btn.Location = new System.Drawing.Point(143, 87);
+            this.add_btn.Location = new System.Drawing.Point(145, 189);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(102, 23);
             this.add_btn.TabIndex = 5;
@@ -89,11 +90,22 @@
             this.add_btn.UseVisualStyleBackColor = true;
             this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(272, 193);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(119, 17);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "Версия оператора";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // MainUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(244, 115);
+            this.ClientSize = new System.Drawing.Size(392, 226);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.add_btn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
@@ -117,6 +129,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button add_btn;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

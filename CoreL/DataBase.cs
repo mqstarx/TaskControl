@@ -132,6 +132,26 @@ namespace CoreL
 
             command.ExecuteNonQuery();
         }
+        public static void InsertFilesOperatorQuery(UFiles uf, string version, string connection_string)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            // conn.Open();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = conn;
+            byte[] databuff = ObjectToByteArray(uf);
+            MySqlParameter fileContentParameter = new MySqlParameter("?databuff", MySqlDbType.Blob, databuff.Length);
+            command.CommandText = "INSERT INTO update_operator (files, version) VALUES (?databuff,'" + version + "');";
+
+            fileContentParameter.Value = databuff;
+
+
+            command.Parameters.Add(fileContentParameter);
+
+            conn.Open();
+
+            command.ExecuteNonQuery();
+        }
 
         public static string GetStatus(int status)
         {

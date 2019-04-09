@@ -8,17 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CoreL;
+using System.Diagnostics;
 
 namespace TaskControlOperator
 {
     public partial class MainForm : Form
     {
         private Cfg m_Cfg;
-        private const int m_Version = 20;
+        private const int m_Version = 10;
         public MainForm()
         {
             InitializeComponent();
             m_Cfg = Cfg.ReadConfig();
+            this.Text += " Версия: " + m_Version.ToString();
             if (m_Cfg == null)
                 this.Close();
         }
@@ -188,10 +190,17 @@ namespace TaskControlOperator
         {
             refresh_btn_Click(null, null);
 
-            List<object[]> res = DataBase.SelectQuery("select * from update_client;", m_Cfg.DbConnectionString);
+            List<object[]> res = DataBase.SelectQuery("select * from update_operator order by id desc;", m_Cfg.DbConnectionString);
             if (res.Count > 0)
             {
-                // проверка обновления
+                if ((int)res[0][2] > m_Version)
+                {
+                    if (MessageBox.Show("Доступна новая версия ПО! Обновить?", "Обновление программы", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Process.Start("OperatorUpdate.exe");
+                        this.Close();
+                    }
+                }
             }
         }
 

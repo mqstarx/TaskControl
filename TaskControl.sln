@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientUpdate", "ClientUpdat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateUploader", "UpdateUploader\UpdateUploader.csproj", "{62AA0F41-F08A-4BD2-B9B3-D2C4F05FBA93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorUpdate", "OperatorUpdate\OperatorUpdate.csproj", "{9A7B3FEB-127D-45BC-8608-794DBBAE5C59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{62AA0F41-F08A-4BD2-B9B3-D2C4F05FBA93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62AA0F41-F08A-4BD2-B9B3-D2C4F05FBA93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62AA0F41-F08A-4BD2-B9B3-D2C4F05FBA93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7B3FEB-127D-45BC-8608-794DBBAE5C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7B3FEB-127D-45BC-8608-794DBBAE5C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7B3FEB-127D-45BC-8608-794DBBAE5C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7B3FEB-127D-45BC-8608-794DBBAE5C59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

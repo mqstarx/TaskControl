@@ -55,10 +55,11 @@ namespace TaskControlOperator
         private void create_report_Click(object sender, EventArgs e)
         {
             report_txb.Text = "";
-            string sql = "select * from tasks where ((status=0 or status = 3) and ( (month(date_end)<='" + period.Value.Month.ToString() + "' and year(date_end) = '" + period.Value.Year.ToString() + "'))) and (date_end_fakt > date_end or (now() > date_end and status=0) )  order by id_isp;";
+            //string sql = "select * from tasks where ((status=0 or status = 3) and ( (month(date_end)<='" + period.Value.Month.ToString() + "' and year(date_end)<= '" + period.Value.Year.ToString() + "'))) and (date_end_fakt > date_end or (now() > date_end and status=0) )  order by id_isp;";
+            string sql = "select * from tasks where ((status=0 or status = 3) and ( (month(date_end)<='" + period.Value.Month.ToString() + "' and year(date_end)<= '" + period.Value.Year.ToString() + "'))) and ((date_end_fakt > date_end and month(date_end_fakt)>='"+period.Value.Month.ToString()+"' and year(date_end_fakt)>='"+ period.Value.Year.ToString() + "'   ) or (now() > date_end and status=0) )  order by id_isp;";
 
-            if(users_cmb.SelectedItem!=null)
-             sql = "select * from tasks where ((status=0 or status = 3) and ( (month(date_end)<='" + period.Value.Month.ToString() + "' and year(date_end) = '" + period.Value.Year.ToString() + "'))) and (date_end_fakt > date_end or (now() > date_end and status=0) ) and id_isp='"+((UserInfo)users_cmb.SelectedItem).Id+"' order by id_isp;";
+            if (users_cmb.SelectedItem!=null)
+             sql = "select * from tasks where ((status=0 or status = 3) and ( (month(date_end)<='" + period.Value.Month.ToString() + "' and year(date_end)<= '" + period.Value.Year.ToString() + "'))) and ((date_end_fakt > date_end and month(date_end_fakt)>='" + period.Value.Month.ToString() + "' and year(date_end_fakt)>='" + period.Value.Year.ToString() + "' ) or (now() > date_end and status=0) ) and id_isp='" + ((UserInfo)users_cmb.SelectedItem).Id+"' order by id_isp;";
 
             List<object[]> res = DataBase.SelectQuery(sql, m_DbConn);
             Report rep = new Report(m_UserList);
